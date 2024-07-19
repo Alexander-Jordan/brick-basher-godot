@@ -1,5 +1,6 @@
-# Breakout
-### The remake
+# Breakout - The Remake
+
+## Game Design Document
 
 ## Table of content
 
@@ -26,34 +27,34 @@
 	- [Target](#target)
 	- [Localization](#localization)
 
-## Overview
+# Overview
 
 A remake of the original arcade-game `Breakout` is all about destroying layers of bricks with the help of a paddle and a ball, earning points for each brick destroyed, and setting the highest score.
 
-### Skills
+## Skills
 
 - Reaction
 - Aim
 - Precision
 - Speed
 
-## Story
+# Story
 
-### Story Hook
+## Story Hook
 
 Prison escape
 
-### Setting
+## Setting
 
 In the original game the story is about a prisoner trying to breakout of prison brick by brick.
 
-## Gameplay
+# Gameplay
 
-### Gameplay Hook
+## Gameplay Hook
 
 It will play as the original Breakout with some customizable gameplay settings.
 
-### Loops
+## Loops
 
 Bounce the ball off the paddle repeatedly to keep it in play and destroy bricks with it to earn points.
 
@@ -61,9 +62,9 @@ When all bricks are destroyed the screen is refilled with the same bricks again.
 
 Upon losing all 3 lives the score is saved if it beats the highest score reached, making the player want to beat it next time.
 
-### Entities
+## Entities
 
-#### Paddle
+### Paddle
 
 Grip the paddle and steer it horizontally with a mouse or finger.
 
@@ -73,7 +74,7 @@ The ball bounces off the paddle in different directions depending on the collisi
 
 Upon hitting the ceiling of the screen with the ball the paddle is shrunk to half the size. The size is reset upon clearing the screen or losing a life.
 
-#### Ball
+### Ball
 
 Serve a ball off the paddle by clicking or tapping the screen.
 
@@ -94,9 +95,9 @@ The ball will never stop or decelerate once it's in play.
 
 Failing to keep the ball in play loses you 1 life out of 3 total lives.
 
-#### Bricks
+### Bricks
 
-_Per Brick_:
+#### Per Brick
 
 | Color | Rows | Points |
 |---|---|---|
@@ -105,62 +106,62 @@ _Per Brick_:
 | Orange | 2 | 5 |
 | Red | 2 | 7 |
 
-_Per Screen_:
+#### Per Screen
 
 | Rows | Columns | Bricks | Points |
 |---|---|---|---|
 | 8 | 14 | 112 | 448
 
-### Progression
+## Progression
 
 Destroy bricks using the ball and paddle. If a screen is cleared, it will be refilled with a new set of bricks. The goal is to earn as much points as possible without losing all 3 lives.
 
-### Losing
+## Losing
 
 The player has 3 lives and loses 1 life if a ball is missed and pass the paddle at the bottom of the screen.
 
 If all 3 lives are lost it's game over.
 
-## Assets
+# Assets
 
-### Sensory Hook
+## Sensory Hook
 
 It will look like the original Breakout with small customizable visuals and sounds.
 
-### Art
+## Art
 
 [Art Bible](#)
 
-### Level Design
+## Level Design
 
 [Level Design Document](#)
 
-### Audio
+## Audio
 
 [Audio Design Document](#)
 
-## Technical
+# Technical
 
-### Platform
+## Platform
 
 - PC (Windows, Mac, & Linux)
 - Web
 
-### Tools
+## Tools
 
 - Godot
 - Aseprite
 - Git/GitHub
 - JSFXR (SFX)
 
-## Marketing & funding
+# Marketing & funding
 
 Will be released on Itch.io for free and marketed on YouTube by showing how it was made.
 
-### Target
+## Target
 
 Classic breakout enthusiasts or anyone interested in game development.
 
-### Localization
+## Localization
 
 - English
