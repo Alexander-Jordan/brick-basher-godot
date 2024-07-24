@@ -1,4 +1,4 @@
-# GAME TITLE - SUBTITLE
+# Breakout - The Remake
 
 ## Art Bible
 
@@ -38,7 +38,7 @@
 
 The art style will be as close to the original as possible, with some small improvements on minimal animations and visual effects.
 
-<img src='./assets/breakout_original_gameplay_moodboard.png' alt='paddle_moodboard' style='height: 400px'/>
+<img src='./assets/breakout_original_gameplay_moodboard.png' alt='paddle_moodboard' style='height: 256px'/>
 
 ## Visual Hook
 
@@ -63,15 +63,15 @@ These could be the transition of filling the screen with bricks, destroying bric
 
 ## Paddle
 
-<img src='./assets/breakout_paddle_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 400px'/>
+<img src='./assets/breakout_paddle_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 256px'/>
 
 ## Bricks
 
-<img src='./assets/breakout_bricks_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 400px'/>
+<img src='./assets/breakout_bricks_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 256px'/>
 
 ## Ball
 
-<img src='./assets/breakout_ball_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 400px'/>
+<img src='./assets/breakout_ball_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 256px'/>
 
 # Environments
 
@@ -159,7 +159,7 @@ Make sure to include moodboards and inspirations.
 
 ### Original art
 
-<img src='./assets/breakout_original_marketing_moodboard.png' alt='paddle_moodboard' style='height: 400px'/>
+<img src='./assets/breakout_original_marketing_moodboard.png' alt='paddle_moodboard' style='height: 256px'/>
 
 How is the art for marketing the game or studio from outside the game designed? Such as icons, banners, cover art, screenshots, gif:s, trailers, videos, or anything similar.
 

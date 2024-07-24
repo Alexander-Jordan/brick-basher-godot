@@ -1,4 +1,4 @@
-# GAME TITLE - SUBTITLE
+# Breakout - The Remake
 
 ## Audio Design Document
 

@@ -1,4 +1,4 @@
-# GAME TITLE - SUBTITLE
+# Breakout - The Remake
 
 ## Level Design Document
 
