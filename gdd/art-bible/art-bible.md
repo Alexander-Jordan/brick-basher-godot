@@ -38,6 +38,8 @@
 
 The art style will be as close to the original as possible, with some small improvements on minimal animations and visual effects.
 
+<img src='./assets/breakout_original_gameplay_moodboard.png' alt='paddle_moodboard' style='height: 400px'/>
+
 ## Visual Hook
 
 It will look as the original game, with some small improvements.
@@ -61,20 +63,15 @@ These could be the transition of filling the screen with bricks, destroying bric
 
 ## Paddle
 
-As the original, the paddle will be a horizontally wide rectangle in a flat blue color.
+<img src='./assets/breakout_paddle_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 400px'/>
 
 ## Bricks
 
-As the original, the bricks will be rectangles of the same size as the paddle, and have 4 different flat colors:
-
-1. Yellow
-2. Green
-3. Orange
-4. Red
+<img src='./assets/breakout_bricks_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 400px'/>
 
 ## Ball
 
-As the original, the ball will be a square with the same width and height as the height of the paddle and bricks, in a flat white color.
+<img src='./assets/breakout_ball_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 400px'/>
 
 # Environments
 
@@ -160,9 +157,11 @@ Make sure to include moodboards and inspirations.
 
 ## External
 
-How is the art for marketing the game or studio from outside the game designed? Such as icons, banners, cover art, screenshots, gif:s, trailers, videos, or anything similar.
+### Original art
 
-Make sure to include moodboards and inspirations.
+<img src='./assets/breakout_original_marketing_moodboard.png' alt='paddle_moodboard' style='height: 400px'/>
+
+How is the art for marketing the game or studio from outside the game designed? Such as icons, banners, cover art, screenshots, gif:s, trailers, videos, or anything similar.
 
 # Technical Guidelines
 
