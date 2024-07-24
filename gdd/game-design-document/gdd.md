@@ -130,15 +130,15 @@ It will look like the original Breakout with small customizable visuals and soun
 
 ## Art
 
-[Art Bible](#)
+[Art Bible](../art-bible/art-bible.md)
 
 ## Level Design
 
-[Level Design Document](#)
+[Level Design Document](../level-design-document/ldd.md)
 
 ## Audio
 
-[Audio Design Document](#)
+[Audio Design Document](../audio-design-document/add.md)
 
 # Technical
 

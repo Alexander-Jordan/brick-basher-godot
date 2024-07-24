@@ -2,4 +2,4 @@
 
 A remake made in Godot game engine.
 
-[Game Design Document](/gdd/game-design-document/gdd.md)
+[Game Design Document](./gdd/game-design-document/gdd.md)
