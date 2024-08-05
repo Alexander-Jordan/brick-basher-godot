@@ -38,7 +38,13 @@
 
 The art style will be as close to the original as possible, with some small improvements on minimal animations and visual effects.
 
-<img src='./assets/breakout_original_gameplay_moodboard.png' alt='paddle_moodboard' style='height: 256px'/>
+### Original
+
+![original_gameplay_moodboard](./assets/breakout_original_gameplay_moodboard.png)
+
+### The Remake
+
+![assets_moodboard](./assets/breakout_assets_moodboard.png)
 
 ## Visual Hook
 
@@ -63,15 +69,15 @@ These could be the transition of filling the screen with bricks, destroying bric
 
 ## Paddle
 
-<img src='./assets/breakout_paddle_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 256px'/>
+![paddle_moodboard](./assets/breakout_paddle_moodboard.png)
 
 ## Bricks
 
-<img src='./assets/breakout_bricks_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 256px'/>
+![bricks_moodboard](./assets/breakout_bricks_moodboard.png)
 
 ## Ball
 
-<img src='./assets/breakout_ball_moodboard.png' alt='paddle_moodboard' style='image-rendering: pixelated; height: 256px'/>
+![ball_moodboard](./assets/breakout_ball_moodboard.png)
 
 # Environments
 
@@ -159,7 +165,9 @@ Make sure to include moodboards and inspirations.
 
 ### Original art
 
-<img src='./assets/breakout_original_marketing_moodboard.png' alt='paddle_moodboard' style='height: 256px'/>
+![original_marketing_moodboard_moodboard](./assets/breakout_original_marketing_moodboard.png)
+
+### Remake
 
 How is the art for marketing the game or studio from outside the game designed? Such as icons, banners, cover art, screenshots, gif:s, trailers, videos, or anything similar.
 
@@ -167,11 +175,12 @@ How is the art for marketing the game or studio from outside the game designed? 
 
 ## Software
 
-- Aseprite (for all sprites and visual assets)
+- `Aseprite`
+- `Krita`
 
 ## File Formats
 
-- **2D assets:** .png
+- **2D assets:** `.png`
 
 ## Restrictions
 
@@ -185,4 +194,14 @@ As Godot's naming convention: [snake_case](https://docs.godotengine.org/en/stabl
 
 ## Workflows
 
-What are the workflows for creating any assets mentioned in this art bible?
+### Moodboards
+
+Both `Aseprite` and `Krita` are used.
+
+Most are entirely made in `Aseprite` in `128x128` canvases, which are then exported as `PNG`, and imported in `Krita` for up-scaling on a `512x512` canvas.
+
+For moodboards with more than just pixel art, they are created directly in `Krita` in a `512x512` canvas. When pixel art elements, such as texts, are present in these, they are first made in `Aseprite` and exported/imported to `Krita` in a similar way as described above.
+
+Pixel font used: either hand-drawn or [TeenyTinyPixls](https://www.fontspace.com/teeny-tiny-pixls-font-f30095). If generating text in `Aseprite` with the `TeenyTinyPixls` font, use font size `5`.
+
+NOTE: to use installed fonts in `Aseprite`, make sure to install them for the entire system and not only for one user. On Linux this is automatically installed on the user when installing it normally, so you need to manually make sure it is installed on the system.
