@@ -1,14 +1,10 @@
-# Breakout - The Remake
-
-## Game Design Document
+# Breakout - The Remake (Game Design Document)
 
 ## Table of content
 
 - [Overview](#overview)
 	- [Skills](#skills)
 - [Story](#story)
-	- [Story Hook](#story-hook)
-	- [Setting](#setting)
 - [Gameplay](#gameplay)
 	- [Gameplay Hook](#gameplay-hook)
 	- [Loops](#loops)
@@ -29,24 +25,17 @@
 
 # Overview
 
-A remake of the original arcade-game `Breakout` is all about destroying layers of bricks with the help of a paddle and a ball, earning points for each brick destroyed, and setting the highest score.
+A remake of the original arcade game `Breakout` that's all about destroying layers of bricks with the help of a paddle and a ball, earning points for each brick destroyed, and setting the highest score.
 
 ## Skills
 
-- Reaction
-- Aim
-- Precision
-- Speed
+The game revolves around **precision** and **speed**, forcing the player to **react** quickly while **aiming** precisely.
 
 # Story
 
-## Story Hook
+In the original game, the story is about a prisoner trying to break out of prison brick by brick. The story is mainly driven by the game title and marketing art.
 
-Prison escape
-
-## Setting
-
-In the original game the story is about a prisoner trying to breakout of prison brick by brick.
+The narrative is a third-person perspective, with the only story progression being destroying bricks.
 
 # Gameplay
 
