@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene load_steps=6 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
+[ext_resource type="PackedScene" uid="uid://b285kd34hr8mu" path="res://entities/ball/ball.tscn" id="2_8rdk8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n026u"]
 normal = Vector2(0, 1)
@@ -31,5 +32,8 @@ position = Vector2(337, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_right"]
 shape = SubResource("WorldBoundaryShape2D_atxi2")
 
-[node name="Paddle" parent="." instance=ExtResource("1_8cpw8")]
+[node name="Paddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_8cpw8")]
 position = Vector2(168, 500)
+ball = NodePath("../Ball")
+
+[node name="Ball" parent="." instance=ExtResource("2_8rdk8")]

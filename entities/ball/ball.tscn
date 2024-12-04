@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b285kd34hr8mu"]
+[gd_scene load_steps=4 format=3 uid="uid://b285kd34hr8mu"]
 
+[ext_resource type="Script" path="res://entities/ball/ball.gd" id="1_b35a3"]
 [ext_resource type="Texture2D" uid="uid://k3ux7kf0x41k" path="res://entities/ball/ball.png" id="1_y4wvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dt8t"]
@@ -7,9 +8,15 @@ size = Vector2(2, 2)
 
 [node name="Ball" type="CharacterBody2D"]
 scale = Vector2(5, 5)
+script = ExtResource("1_b35a3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0dt8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_y4wvj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-1, -1, 2, 2)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
