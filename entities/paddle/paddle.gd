@@ -6,8 +6,6 @@ var input_pos:Vector2 = self.position
 var speed:int = 2000
 var lock_ball:bool = true
 
-signal spawn_ball()
-
 func _ready() -> void:
 	if ball:
 		ball.reset_ball.connect(func(): lock_ball = true)
