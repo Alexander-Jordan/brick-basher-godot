@@ -3,7 +3,6 @@ extends Node2D
 @export var scene:PackedScene
 @export var resources:Array[BrickResource]
 
-var bricks:Array[Brick] = []
 var bricks_destroyed:Array[Brick] = []
 var rows:Array[BrickResource] = []
 
@@ -46,5 +45,11 @@ func spawn_brick(resource:BrickResource) -> Brick:
 		brick = bricks_destroyed.pop_back()
 	
 	brick.init(resource)
-	bricks.append(brick)
+	if !brick.destroyed.is_connected(handle_destroyed_brick):
+		brick.destroyed.connect(handle_destroyed_brick.bind(brick))
+	
 	return brick
+
+func handle_destroyed_brick(brick:Brick):
+	if brick not in bricks_destroyed:
+		bricks_destroyed.append(brick)
