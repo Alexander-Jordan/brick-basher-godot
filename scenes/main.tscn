@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene load_steps=13 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
 [ext_resource type="PackedScene" uid="uid://b285kd34hr8mu" path="res://entities/ball/ball.tscn" id="2_8rdk8"]
+[ext_resource type="Script" path="res://systems/brick_handler.gd" id="3_h1hw6"]
+[ext_resource type="PackedScene" uid="uid://cllc7hmitpq3d" path="res://entities/brick/brick.tscn" id="4_o0h0c"]
+[ext_resource type="Script" path="res://entities/brick/brick_resource.gd" id="5_olc8o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n026u"]
 normal = Vector2(0, 1)
@@ -11,6 +14,22 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_atxi2"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="Resource" id="Resource_mhsjy"]
+script = ExtResource("5_olc8o")
+color = Color(0.701961, 0.0705882, 0.0705882, 1)
+
+[sub_resource type="Resource" id="Resource_2550q"]
+script = ExtResource("5_olc8o")
+color = Color(0.901961, 0.384314, 0.12549, 1)
+
+[sub_resource type="Resource" id="Resource_it0lq"]
+script = ExtResource("5_olc8o")
+color = Color(0.341176, 0.8, 0.239216, 1)
+
+[sub_resource type="Resource" id="Resource_4q1oa"]
+script = ExtResource("5_olc8o")
+color = Color(1, 0.913725, 0.25098, 1)
 
 [node name="Main" type="Node2D"]
 
@@ -37,3 +56,8 @@ position = Vector2(168, 500)
 ball = NodePath("../Ball")
 
 [node name="Ball" parent="." instance=ExtResource("2_8rdk8")]
+
+[node name="brick_handler" type="Node2D" parent="."]
+script = ExtResource("3_h1hw6")
+scene = ExtResource("4_o0h0c")
+resources = Array[ExtResource("5_olc8o")]([SubResource("Resource_mhsjy"), SubResource("Resource_2550q"), SubResource("Resource_it0lq"), SubResource("Resource_4q1oa")])

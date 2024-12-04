@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 func lock_ball_to_paddle() -> void:
 	if ball:
-		ball.position = Vector2(position.x, position.y - 20)
+		ball.position = Vector2(position.x, position.y - 10)
 
 func serve_ball() -> void:
 	if ball and lock_ball:

@@ -7,7 +7,7 @@
 size = Vector2(2, 2)
 
 [node name="Ball" type="CharacterBody2D"]
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 script = ExtResource("1_b35a3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
