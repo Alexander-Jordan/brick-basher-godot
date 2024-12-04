@@ -22,10 +22,13 @@ func _physics_process(delta: float) -> void:
 		if !handle_velocity_after_collision(collider):
 			# if the velocity was not handled after collision, just bounce
 			velocity = velocity.bounce(collision.get_normal())
+		
+		if collider.has_method('take_damage'):
+			collider.take_damage(1)
 
 func handle_velocity_after_collision(object:Object) -> bool:	
 	# then check if the velocity should be handled
-	if object.has_method("ball_velocity_after_bounce"):
+	if object.has_method('ball_velocity_after_bounce'):
 		velocity = object.ball_velocity_after_bounce(velocity, position)
 		return true
 	
