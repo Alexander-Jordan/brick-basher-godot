@@ -7,6 +7,9 @@ var direction:Vector2 = Vector2.ZERO
 
 signal reset_ball
 
+func _ready() -> void:
+	GameManager.game_new.connect(reset)
+
 func reset() -> void:
 	velocity = Vector2.ZERO
 	reset_ball.emit()

@@ -10,10 +10,12 @@ const ROWS:int = 8
 const COLUMNS:int = 14
 
 func _ready() -> void:
-	setup_rows()
+	GameManager.bricks_reset.connect(reset_bricks)
+	GameManager.game_new.connect(reset_bricks)
 	reset_bricks()
 
 func setup_rows():
+	rows = []
 	var r_size = resources.size()
 	var rows_per_type:float = float(ROWS) / float(r_size)
 	var remainder = ROWS % r_size
@@ -23,7 +25,14 @@ func setup_rows():
 		for row in rows_for_resource:
 			rows.append(resources[r_index])
 
+func clear_bricks() -> void:
+	for brick in get_children():
+		if brick is Brick:
+			brick.destroy()
+
 func reset_bricks() -> void:
+	clear_bricks()
+	setup_rows()
 	var offset = Vector2(25, 20)
 	for row in rows.size():
 		for column in COLUMNS:
