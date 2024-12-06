@@ -29,5 +29,6 @@ func take_damage(damage:int) -> void:
 func destroy() -> void:
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	self.hide()
+	GameManager.score += resource.score
 	is_destroyed = true
 	destroyed.emit()
