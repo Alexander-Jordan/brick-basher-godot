@@ -1,7 +1,11 @@
 class_name Ball
 extends CharacterBody2D
 
-@export var speed:int = 200
+var speed:int = GameManager.BallSpeed.INIT :
+	set(s):
+		if s > GameManager.BallSpeed.INIT and s <= speed:
+			return
+		speed = s
 var rng = RandomNumberGenerator.new()
 var direction:Vector2 = Vector2.ZERO
 
@@ -9,6 +13,7 @@ signal reset_ball
 
 func _ready() -> void:
 	GameManager.game_new.connect(reset)
+	GameManager.ball_speed_changed.connect(func(s:int): speed = s)
 
 func reset() -> void:
 	velocity = Vector2.ZERO
@@ -39,6 +44,7 @@ func handle_velocity_after_collision(object:Object) -> bool:
 	return false
 
 func _on_screen_exited() -> void:
+	GameManager.brick_streak = 0
 	GameManager.lives -= 1
 	if GameManager.lives > 0:
 		await get_tree().create_timer(1.0).timeout

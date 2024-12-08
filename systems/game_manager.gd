@@ -5,6 +5,13 @@ enum {
 	GAME_NEW,
 }
 
+enum BallSpeed {
+	INIT = 200,
+	MEDIUM = 300,
+	FAST = 400,
+	SUPER = 500,
+}
+
 var state:int = GAME_NEW :
 	set(gs):
 		match gs:
@@ -14,8 +21,9 @@ var state:int = GAME_NEW :
 			GAME_NEW:
 				state = gs
 				game_new.emit()
-				score = 0
 				lives = 3
+				score = 0
+				brick_streak = 0
 			_:
 				return
 var lives:int = 3 :
@@ -29,7 +37,20 @@ var score:int = 0 :
 	set(s):
 		score = s
 		score_changed.emit(score)
+var brick_streak:int = 0 :
+	set(bs):
+		brick_streak = 0 if bs < 0 else bs
+		match bs:
+			0:
+				ball_speed_changed.emit(BallSpeed.INIT)
+			4:
+				ball_speed_changed.emit(BallSpeed.MEDIUM)
+			12:
+				ball_speed_changed.emit(BallSpeed.FAST)
+			_:
+				return
 
+signal ball_speed_changed(speed:int)
 signal lives_changed(lives:int)
 signal score_changed(score:int)
 signal game_new
@@ -38,6 +59,17 @@ signal bricks_reset
 signal bricks_clear
 
 func _input(_event):
+	if Input.is_action_just_pressed('ball_speed_init'):
+		ball_speed_changed.emit(BallSpeed.INIT)
+	if Input.is_action_just_pressed('ball_speed_medium'):
+		ball_speed_changed.emit(BallSpeed.INIT)
+		ball_speed_changed.emit(BallSpeed.MEDIUM)
+	if Input.is_action_just_pressed('ball_speed_fast'):
+		ball_speed_changed.emit(BallSpeed.INIT)
+		ball_speed_changed.emit(BallSpeed.FAST)
+	if Input.is_action_just_pressed('ball_speed_super'):
+		ball_speed_changed.emit(BallSpeed.INIT)
+		ball_speed_changed.emit(BallSpeed.SUPER)
 	if Input.is_action_just_pressed('dev_game_over'):
 		state = GAME_OVER
 	elif Input.is_action_just_pressed('dev_game_new'):
