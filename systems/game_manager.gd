@@ -14,13 +14,16 @@ signal game_started_changed(game_started:bool)
 signal game_new
 signal game_over
 signal bricks_reset
+signal bricks_clear
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed('dev_game_over'):
 		game_over.emit()
 	elif Input.is_action_just_pressed('dev_game_new'):
 		game_new.emit()
-	if Input.is_action_just_pressed('dev_bricks_reset'):
+	if Input.is_action_just_pressed('dev_bricks_clear'):
+		bricks_clear.emit()
+	elif Input.is_action_just_pressed('dev_bricks_reset'):
 		bricks_reset.emit()
 	if Input.is_action_just_pressed('dev_score_decrease'):
 		score -= 10

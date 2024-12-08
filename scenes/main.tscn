@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene load_steps=15 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
 [ext_resource type="PackedScene" uid="uid://b285kd34hr8mu" path="res://entities/ball/ball.tscn" id="2_8rdk8"]
@@ -40,6 +40,8 @@ color = Color(1, 0.913725, 0.25098, 1)
 health = 1
 score = 1
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_maa7i"]
+
 [node name="Main" type="Node2D"]
 
 [node name="boundaries" type="Node" parent="."]
@@ -71,6 +73,14 @@ script = ExtResource("3_h1hw6")
 scene = ExtResource("4_o0h0c")
 resources = Array[ExtResource("5_olc8o")]([SubResource("Resource_mhsjy"), SubResource("Resource_2550q"), SubResource("Resource_it0lq"), SubResource("Resource_4q1oa")])
 
+[node name="Area2D" type="Area2D" parent="brick_handler"]
+position = Vector2(0, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick_handler/Area2D"]
+shape = SubResource("WorldBoundaryShape2D_maa7i")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Game_UI" parent="CanvasLayer" instance=ExtResource("6_naxe7")]
+
+[connection signal="body_entered" from="brick_handler/Area2D" to="brick_handler" method="_on_area_2d_body_entered"]
