@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @export var ball:Ball
 
+# used to lock the y-position
+@onready var y_position:float = self.position.y
+
 var input_pos:Vector2 = self.position
 var speed:int = 2000
 var lock_ball:bool = true
@@ -12,7 +15,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	input_pos = get_viewport().get_mouse_position()
-	velocity = Vector2(input_pos.x - position.x, 0) * speed * delta
+	# lock the y-position
+	input_pos.y = y_position
+	velocity = (input_pos - position) * speed * delta
 	move_and_slide()
 	
 	if lock_ball:
