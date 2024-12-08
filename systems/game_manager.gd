@@ -1,16 +1,37 @@
 extends Node
 
+enum {
+	GAME_OVER,
+	GAME_NEW,
+}
+
+var state:int = GAME_NEW :
+	set(gs):
+		match gs:
+			GAME_OVER:
+				state = gs
+				game_over.emit()
+			GAME_NEW:
+				state = gs
+				game_new.emit()
+				score = 0
+				lives = 3
+			_:
+				return
+var lives:int = 3 :
+	set(l):
+		lives = l
+		lives_changed.emit(lives)
+		if lives < 1:
+			await get_tree().create_timer(1.0).timeout
+			state = GAME_OVER
 var score:int = 0 :
 	set(s):
 		score = s
 		score_changed.emit(score)
-var game_started:bool = false :
-	set(gs):
-		game_started = gs
-		game_started_changed.emit(game_started)
 
+signal lives_changed(lives:int)
 signal score_changed(score:int)
-signal game_started_changed(game_started:bool)
 signal game_new
 signal game_over
 signal bricks_reset
@@ -18,9 +39,9 @@ signal bricks_clear
 
 func _input(_event):
 	if Input.is_action_just_pressed('dev_game_over'):
-		game_over.emit()
+		state = GAME_OVER
 	elif Input.is_action_just_pressed('dev_game_new'):
-		game_new.emit()
+		state = GAME_NEW
 	if Input.is_action_just_pressed('dev_bricks_clear'):
 		bricks_clear.emit()
 	elif Input.is_action_just_pressed('dev_bricks_reset'):

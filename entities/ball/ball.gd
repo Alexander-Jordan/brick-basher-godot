@@ -39,6 +39,7 @@ func handle_velocity_after_collision(object:Object) -> bool:
 	return false
 
 func _on_screen_exited() -> void:
-	# wait for some time before doing anything else
-	await get_tree().create_timer(1.0).timeout
-	reset()
+	GameManager.lives -= 1
+	if GameManager.lives > 0:
+		await get_tree().create_timer(1.0).timeout
+		reset()
