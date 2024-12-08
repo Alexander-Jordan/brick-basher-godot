@@ -10,9 +10,10 @@ const ROWS:int = 8
 const COLUMNS:int = 14
 
 func _ready() -> void:
-	GameManager.bricks_reset.connect(reset_bricks)
-	GameManager.game_new.connect(reset_bricks)
-	reset_bricks()
+	GameManager.bricks_reset.connect(bricks_reset)
+	GameManager.bricks_clear.connect(bricks_clear)
+	GameManager.game_new.connect(bricks_reset)
+	bricks_reset()
 
 func setup_rows():
 	rows = []
@@ -25,13 +26,13 @@ func setup_rows():
 		for row in rows_for_resource:
 			rows.append(resources[r_index])
 
-func clear_bricks() -> void:
+func bricks_clear() -> void:
 	for brick in get_children():
-		if brick is Brick:
+		if brick is Brick and !brick.is_destroyed:
 			brick.destroy()
 
-func reset_bricks() -> void:
-	clear_bricks()
+func bricks_reset() -> void:
+	bricks_clear()
 	setup_rows()
 	var offset = Vector2(25, 20)
 	for row in rows.size():
@@ -62,3 +63,7 @@ func spawn_brick(resource:BrickResource) -> Brick:
 func handle_destroyed_brick(brick:Brick):
 	if brick not in bricks_destroyed:
 		bricks_destroyed.append(brick)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Ball and bricks_destroyed.size() == (ROWS * COLUMNS):
+		bricks_reset()
