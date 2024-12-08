@@ -21,24 +21,28 @@ script = ExtResource("5_olc8o")
 color = Color(0.701961, 0.0705882, 0.0705882, 1)
 health = 1
 score = 7
+max_speed_on_destroy = true
 
 [sub_resource type="Resource" id="Resource_2550q"]
 script = ExtResource("5_olc8o")
 color = Color(0.901961, 0.384314, 0.12549, 1)
 health = 1
 score = 5
+max_speed_on_destroy = true
 
 [sub_resource type="Resource" id="Resource_it0lq"]
 script = ExtResource("5_olc8o")
 color = Color(0.341176, 0.8, 0.239216, 1)
 health = 1
 score = 3
+max_speed_on_destroy = false
 
 [sub_resource type="Resource" id="Resource_4q1oa"]
 script = ExtResource("5_olc8o")
 color = Color(1, 0.913725, 0.25098, 1)
 health = 1
 score = 1
+max_speed_on_destroy = false
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_maa7i"]
 
