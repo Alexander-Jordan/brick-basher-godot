@@ -40,7 +40,7 @@ script = ExtResource("1_id1lx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fl3vy")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.278431, 0.678431, 0.8, 1)
 sprite_frames = SubResource("SpriteFrames_ar0ay")
 animation = &"normal"

@@ -3,11 +3,12 @@ extends CharacterBody2D
 enum Width {
 	NORMAL = 6,
 	HARD = 3,
+	DEV = 102,
 }
 
 @export var ball:Ball
 
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 # used to lock the y-position
 @onready var y_position:float = self.position.y
@@ -20,7 +21,13 @@ var width:int = Width.NORMAL :
 		if w == width:
 			return
 		width = w
-		sprite_2d.animation = 'normal' if width == Width.NORMAL else 'hard'
+		match width:
+			Width.HARD:
+				animated_sprite_2d.scale.x = 0.5
+			Width.DEV:
+				animated_sprite_2d.scale.x = 17
+			_:
+				animated_sprite_2d.scale.x = 1.0
 		collision_shape_2d.shape.size.x = width
 
 func _ready() -> void:
@@ -58,7 +65,7 @@ func ball_velocity_after_bounce(ball_velocity:Vector2, ball_position:Vector2) ->
 	var from_center:float = ball_position.x - position.x
 	# new x is calculated by normalizing from_center (ex. 20 to -20 range -> 1 to -1 range)
 	# that's done by dividing from_center with max value (in this case: width / 2)
-	var new_x:float = from_center / ((6 * scale.x) / 2)
+	var new_x:float = from_center / ((width * scale.x) / 2)
 	# clamp new_x so it doesn't shoot straight left or right
 	new_x = clampf(new_x, -0.9, 0.9)
 	return Vector2(new_x, new_y).normalized()
@@ -67,5 +74,7 @@ func change_size_on_mode_change(mode:int):
 	match mode:
 		GameManager.Mode.HARD:
 			width = Width.HARD
+		GameManager.Mode.DEV:
+			width = Width.DEV
 		_:
 			width = Width.NORMAL

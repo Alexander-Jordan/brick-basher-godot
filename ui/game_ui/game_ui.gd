@@ -1,3 +1,4 @@
+class_name GameUI
 extends Control
 
 @onready var score_label: Label = $VBoxContainer/MarginContainer/score_label

@@ -66,4 +66,4 @@ func handle_destroyed_brick(brick:Brick):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Ball and bricks_destroyed.size() == (ROWS * COLUMNS):
-		bricks_reset()
+		GameManager.bricks_reset.emit()

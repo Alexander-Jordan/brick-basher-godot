@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene load_steps=17 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
 [ext_resource type="PackedScene" uid="uid://dl1eswt4ehg5u" path="res://entities/ceiling/ceiling.tscn" id="1_un4r3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cllc7hmitpq3d" path="res://entities/brick/brick.tscn" id="4_o0h0c"]
 [ext_resource type="Script" path="res://entities/brick/brick_resource.gd" id="5_olc8o"]
 [ext_resource type="PackedScene" uid="uid://ckhh8bohuxaf8" path="res://ui/game_ui/game_ui.tscn" id="6_naxe7"]
+[ext_resource type="PackedScene" uid="uid://bbnkb8an2gw5n" path="res://systems/dev_tools/dev_tools.tscn" id="9_7aptm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_267v6"]
 normal = Vector2(1, 0)
@@ -98,6 +99,8 @@ shape = SubResource("WorldBoundaryShape2D_maa7i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Game_UI" parent="CanvasLayer" instance=ExtResource("6_naxe7")]
+[node name="DevTools" parent="CanvasLayer" instance=ExtResource("9_7aptm")]
+
+[node name="GameUI" parent="CanvasLayer" instance=ExtResource("6_naxe7")]
 
 [connection signal="body_entered" from="brick_handler/Area2D" to="brick_handler" method="_on_area_2d_body_entered"]

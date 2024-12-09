@@ -32,6 +32,6 @@ func destroy() -> void:
 	GameManager.score += resource.score
 	GameManager.brick_streak += 1
 	if resource.max_speed_on_destroy:
-		GameManager.ball_speed_changed.emit(GameManager.BallSpeed.SUPER)
+		GameManager.ball_speed_changed.emit(GameManager.BallSpeed.MAX)
 	is_destroyed = true
 	destroyed.emit()

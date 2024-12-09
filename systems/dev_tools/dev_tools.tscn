@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbnkb8an2gw5n"]
+
+[ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_m0jtx"]
+[ext_resource type="Script" path="res://systems/dev_tools/dev_tools.gd" id="2_gkexi"]
+
+[node name="DevTools" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_m0jtx")
+script = ExtResource("2_gkexi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="params" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="lives" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="lives_label" type="Label" parent="VBoxContainer/params/lives"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIVES:"
+uppercase = true
+
+[node name="lives_value" type="Label" parent="VBoxContainer/params/lives"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="brick_streak" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="brick_streak_label" type="Label" parent="VBoxContainer/params/brick_streak"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BRICK STREAK:"
+uppercase = true
+
+[node name="brick_streak_value" type="Label" parent="VBoxContainer/params/brick_streak"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="speed" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="speed_label" type="Label" parent="VBoxContainer/params/speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SPEED:"
+uppercase = true
+
+[node name="speed_value" type="Label" parent="VBoxContainer/params/speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INIT"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="mode" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="mode_label" type="Label" parent="VBoxContainer/params/mode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MODE:"
+uppercase = true
+
+[node name="mode_value" type="Label" parent="VBoxContainer/params/mode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "NORMAL"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="state" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="state_label" type="Label" parent="VBoxContainer/params/state"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "STATE:"
+uppercase = true
+
+[node name="state_value" type="Label" parent="VBoxContainer/params/state"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GAME_NEW"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "DEV MODE ENABLED"
+uppercase = true
