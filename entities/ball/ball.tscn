@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b285kd34hr8mu"]
 
 [ext_resource type="Script" path="res://entities/ball/ball.gd" id="1_b35a3"]
-[ext_resource type="Texture2D" uid="uid://k3ux7kf0x41k" path="res://entities/ball/ball.png" id="1_y4wvj"]
+[ext_resource type="Texture2D" uid="uid://u18o7yk120md" path="res://entities/entities_spritesheet.png" id="2_ttk8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dt8t"]
 size = Vector2(2, 2)
@@ -14,7 +14,9 @@ script = ExtResource("1_b35a3")
 shape = SubResource("RectangleShape2D_0dt8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_y4wvj")
+texture = ExtResource("2_ttk8n")
+region_enabled = true
+region_rect = Rect2(1, 1, 2, 2)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-1, -1, 2, 2)

@@ -1,15 +1,30 @@
 extends CharacterBody2D
 
+enum Width {
+	NORMAL = 6,
+	HARD = 3,
+}
+
 @export var ball:Ball
 
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 # used to lock the y-position
 @onready var y_position:float = self.position.y
 
 var input_pos:Vector2 = self.position
 var speed:int = 2000
 var lock_ball:bool = true
+var width:int = Width.NORMAL :
+	set(w):
+		if w == width:
+			return
+		width = w
+		sprite_2d.animation = 'normal' if width == Width.NORMAL else 'hard'
+		collision_shape_2d.shape.size.x = width
 
 func _ready() -> void:
+	GameManager.mode_changed.connect(func(mode:int): change_size_on_mode_change(mode))
 	if ball:
 		ball.reset_ball.connect(func(): lock_ball = true)
 
@@ -47,3 +62,10 @@ func ball_velocity_after_bounce(ball_velocity:Vector2, ball_position:Vector2) ->
 	# clamp new_x so it doesn't shoot straight left or right
 	new_x = clampf(new_x, -0.9, 0.9)
 	return Vector2(new_x, new_y).normalized()
+
+func change_size_on_mode_change(mode:int):
+	match mode:
+		GameManager.Mode.HARD:
+			width = Width.HARD
+		_:
+			width = Width.NORMAL

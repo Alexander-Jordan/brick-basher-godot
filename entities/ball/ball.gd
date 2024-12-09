@@ -33,6 +33,9 @@ func _physics_process(delta: float) -> void:
 		
 		if collider.has_method('take_damage'):
 			collider.take_damage(1)
+		
+		if collider.has_method('trigger_mode_change'):
+			collider.trigger_mode_change()
 
 func handle_velocity_after_collision(object:Object) -> bool:	
 	# then check if the velocity should be handled
@@ -44,8 +47,9 @@ func handle_velocity_after_collision(object:Object) -> bool:
 	return false
 
 func _on_screen_exited() -> void:
-	GameManager.brick_streak = 0
 	GameManager.lives -= 1
+	GameManager.brick_streak = 0
+	GameManager.mode = GameManager.Mode.NORMAL
 	if GameManager.lives > 0:
 		await get_tree().create_timer(1.0).timeout
 		reset()
