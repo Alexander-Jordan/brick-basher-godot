@@ -5,6 +5,11 @@ enum {
 	GAME_NEW,
 }
 
+enum Mode {
+	NORMAL,
+	HARD,
+}
+
 enum BallSpeed {
 	INIT = 200,
 	MEDIUM = 300,
@@ -26,6 +31,12 @@ var state:int = GAME_NEW :
 				brick_streak = 0
 			_:
 				return
+var mode:int = Mode.NORMAL :
+	set(m):
+		if mode == m or m not in Mode.values():
+			return
+		mode = m
+		mode_changed.emit(mode)
 var lives:int = 3 :
 	set(l):
 		lives = l
@@ -51,6 +62,7 @@ var brick_streak:int = 0 :
 				return
 
 signal ball_speed_changed(speed:int)
+signal mode_changed(mode:int)
 signal lives_changed(lives:int)
 signal score_changed(score:int)
 signal game_new
@@ -59,17 +71,19 @@ signal bricks_reset
 signal bricks_clear
 
 func _input(_event):
-	if Input.is_action_just_pressed('ball_speed_init'):
+	if Input.is_action_just_pressed('dev_ball_speed_init'):
 		ball_speed_changed.emit(BallSpeed.INIT)
-	if Input.is_action_just_pressed('ball_speed_medium'):
+	if Input.is_action_just_pressed('dev_ball_speed_medium'):
 		ball_speed_changed.emit(BallSpeed.INIT)
 		ball_speed_changed.emit(BallSpeed.MEDIUM)
-	if Input.is_action_just_pressed('ball_speed_fast'):
+	if Input.is_action_just_pressed('dev_ball_speed_fast'):
 		ball_speed_changed.emit(BallSpeed.INIT)
 		ball_speed_changed.emit(BallSpeed.FAST)
-	if Input.is_action_just_pressed('ball_speed_super'):
+	if Input.is_action_just_pressed('dev_ball_speed_super'):
 		ball_speed_changed.emit(BallSpeed.INIT)
 		ball_speed_changed.emit(BallSpeed.SUPER)
+	if Input.is_action_just_pressed('dev_mode_toggle'):
+		mode = Mode.HARD if mode == Mode.NORMAL else Mode.NORMAL
 	if Input.is_action_just_pressed('dev_game_over'):
 		state = GAME_OVER
 	elif Input.is_action_just_pressed('dev_game_new'):

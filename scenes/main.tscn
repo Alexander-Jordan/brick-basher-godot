@@ -1,14 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
+[ext_resource type="PackedScene" uid="uid://dl1eswt4ehg5u" path="res://entities/ceiling/ceiling.tscn" id="1_un4r3"]
 [ext_resource type="PackedScene" uid="uid://b285kd34hr8mu" path="res://entities/ball/ball.tscn" id="2_8rdk8"]
 [ext_resource type="Script" path="res://systems/brick_handler.gd" id="3_h1hw6"]
 [ext_resource type="PackedScene" uid="uid://cllc7hmitpq3d" path="res://entities/brick/brick.tscn" id="4_o0h0c"]
 [ext_resource type="Script" path="res://entities/brick/brick_resource.gd" id="5_olc8o"]
 [ext_resource type="PackedScene" uid="uid://ckhh8bohuxaf8" path="res://ui/game_ui/game_ui.tscn" id="6_naxe7"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n026u"]
-normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_267v6"]
 normal = Vector2(1, 0)
@@ -50,10 +48,7 @@ max_speed_on_destroy = false
 
 [node name="boundaries" type="Node" parent="."]
 
-[node name="ceiling" type="StaticBody2D" parent="boundaries"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/ceiling"]
-shape = SubResource("WorldBoundaryShape2D_n026u")
+[node name="Ceiling" parent="boundaries" instance=ExtResource("1_un4r3")]
 
 [node name="wall_left" type="StaticBody2D" parent="boundaries"]
 
