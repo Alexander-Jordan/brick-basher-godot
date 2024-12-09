@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene load_steps=16 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
 [ext_resource type="PackedScene" uid="uid://dl1eswt4ehg5u" path="res://entities/ceiling/ceiling.tscn" id="1_un4r3"]
 [ext_resource type="PackedScene" uid="uid://b285kd34hr8mu" path="res://entities/ball/ball.tscn" id="2_8rdk8"]
+[ext_resource type="Texture2D" uid="uid://u18o7yk120md" path="res://entities/entities_spritesheet.png" id="2_m4sd4"]
 [ext_resource type="Script" path="res://systems/brick_handler.gd" id="3_h1hw6"]
 [ext_resource type="PackedScene" uid="uid://cllc7hmitpq3d" path="res://entities/brick/brick.tscn" id="4_o0h0c"]
 [ext_resource type="Script" path="res://entities/brick/brick_resource.gd" id="5_olc8o"]
@@ -51,15 +52,32 @@ max_speed_on_destroy = false
 [node name="Ceiling" parent="boundaries" instance=ExtResource("1_un4r3")]
 
 [node name="wall_left" type="StaticBody2D" parent="boundaries"]
+position = Vector2(16, 270)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_left"]
 shape = SubResource("WorldBoundaryShape2D_267v6")
 
+[node name="Sprite2D" type="Sprite2D" parent="boundaries/wall_left"]
+modulate = Color(0.102, 0.144467, 0.2, 1)
+position = Vector2(-8, 0)
+scale = Vector2(8, 270)
+texture = ExtResource("2_m4sd4")
+region_enabled = true
+region_rect = Rect2(1, 1, 2, 2)
+
 [node name="wall_right" type="StaticBody2D" parent="boundaries"]
-position = Vector2(337, 0)
+position = Vector2(321, 270)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_right"]
 shape = SubResource("WorldBoundaryShape2D_atxi2")
+
+[node name="Sprite2D" type="Sprite2D" parent="boundaries/wall_right"]
+modulate = Color(0.101961, 0.145098, 0.2, 1)
+position = Vector2(8, 0)
+scale = Vector2(8, 270)
+texture = ExtResource("2_m4sd4")
+region_enabled = true
+region_rect = Rect2(1, 1, 2, 2)
 
 [node name="Paddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_8cpw8")]
 position = Vector2(168, 500)
