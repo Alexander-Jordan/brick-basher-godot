@@ -26,7 +26,8 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="score_label" type="Label" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -35,6 +36,20 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="back_button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BACK"
+
+[node name="restart_button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "RESTART"
 
 [node name="end_screen" type="Control" parent="VBoxContainer"]
 visible = false
@@ -60,12 +75,3 @@ layout_mode = 2
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="restart_button" type="Button" parent="VBoxContainer/end_screen/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "RESTART"
-
-[node name="quit_button" type="Button" parent="VBoxContainer/end_screen/VBoxContainer"]
-layout_mode = 2
-text = "QUIT"

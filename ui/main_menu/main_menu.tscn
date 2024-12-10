@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8qwgw5jcian7"]
+
+[ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_ebfee"]
+[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="2_sjegy"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ebfee")
+script = ExtResource("2_sjegy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "BREAKOUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="start_button" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "START"
+
+[node name="stats_button" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "STATS"
+
+[node name="exit_button" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="music_toggle" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+disabled = true
+toggle_mode = true
+text = "MUSIC"
+
+[node name="sfx_toggle" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+disabled = true
+toggle_mode = true
+text = "SFX"
