@@ -36,7 +36,7 @@ var mode:int = Mode.NORMAL :
 	set(m):
 		if mode == m:
 			return
-		assert(m in Mode.values(), '%s is not a valid Game state.' % str(m))
+		assert(m in Mode.values(), '%s is not a valid Mode.' % str(m))
 		mode = m
 		mode_changed.emit(mode)
 var lives:int = 3 :
