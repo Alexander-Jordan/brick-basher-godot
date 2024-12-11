@@ -22,8 +22,9 @@ enum BallSpeed {
 
 var game:int = Game.NEW :
 	set(g):
-		if g == game or g not in Game.values():
+		if g == game:
 			return
+		assert(g in Game.values(), '%s is not a valid Game state.' % str(g))
 		game = g
 		game_changed.emit(game)
 		if game == Game.NEW:
@@ -33,8 +34,9 @@ var game:int = Game.NEW :
 			brick_streak = 0
 var mode:int = Mode.NORMAL :
 	set(m):
-		if mode == m or m not in Mode.values():
+		if mode == m:
 			return
+		assert(m in Mode.values(), '%s is not a valid Game state.' % str(m))
 		mode = m
 		mode_changed.emit(mode)
 var lives:int = 3 :
