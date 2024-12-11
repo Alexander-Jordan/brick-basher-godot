@@ -20,11 +20,11 @@ script = ExtResource("2_sjegy")
 stream = ExtResource("3_c1r7u")
 volume_db = -20.0
 autoplay = true
-bus = &"Music"
+bus = &"music"
 parameters/looping = true
 
 [node name="UIAudioPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
+bus = &"sfx"
 script = ExtResource("4_qnmmh")
 audio_button_pressed = ExtResource("3_x18ru")
 
@@ -69,13 +69,11 @@ size_flags_vertical = 6
 [node name="music_toggle" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-disabled = true
 toggle_mode = true
 text = "MUSIC"
 
 [node name="sfx_toggle" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-disabled = true
 toggle_mode = true
 text = "SFX"

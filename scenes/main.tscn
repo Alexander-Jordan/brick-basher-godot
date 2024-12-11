@@ -56,7 +56,7 @@ max_speed_on_destroy = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_hrwpe")
 volume_db = -5.0
-bus = &"Music"
+bus = &"music"
 parameters/looping = true
 script = ExtResource("2_my4tp")
 
@@ -106,7 +106,7 @@ audio_brick_destroyed = ExtResource("8_md22t")
 audio_bricks_reset = ExtResource("9_yomhv")
 
 [node name="AudioPlayer2D" type="AudioStreamPlayer2D" parent="brick_handler"]
-bus = &"SFX"
+bus = &"sfx"
 script = ExtResource("8_7pa1o")
 
 [node name="Area2D" type="Area2D" parent="brick_handler"]
