@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckhh8bohuxaf8"]
+[gd_scene load_steps=7 format=3 uid="uid://ckhh8bohuxaf8"]
 
 [ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_8e07f"]
 [ext_resource type="Script" path="res://ui/game_ui/game_ui.gd" id="2_3o7bp"]
+[ext_resource type="AudioStream" uid="uid://ui82fd7xecr6" path="res://systems/game_manager/game_over.wav" id="3_8ojhj"]
+[ext_resource type="Script" path="res://ui/ui_audio_player/ui_audio_player.gd" id="3_ohgls"]
+[ext_resource type="AudioStream" uid="uid://dxioydi8v0mbl" path="res://systems/game_manager/highscore.wav" id="4_a6xdi"]
+[ext_resource type="AudioStream" uid="uid://lchpmesdm40b" path="res://ui/ui_audio_player/click.wav" id="4_cbgqc"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -14,6 +18,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_8e07f")
 script = ExtResource("2_3o7bp")
+audio_game_over = ExtResource("3_8ojhj")
+audio_highscore = ExtResource("4_a6xdi")
+
+[node name="UIAudioPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_ohgls")
+audio_button_pressed = ExtResource("4_cbgqc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

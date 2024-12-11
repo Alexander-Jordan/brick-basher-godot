@@ -1,6 +1,13 @@
 class_name Ball
 extends CharacterBody2D
 
+@export var bounce_wall:AudioStream
+@export var bounce_paddle:AudioStream
+@export var bounce_brick:AudioStream
+@export var audio_ball_lost:AudioStream
+
+@onready var audio_player_2d: AudioPlayer2D = $AudioPlayer2D
+
 var speed:int = GameManager.BallSpeed.INIT :
 	set(s):
 		if s > GameManager.BallSpeed.INIT and s <= speed:
@@ -22,20 +29,28 @@ func reset() -> void:
 func serve():
 	direction = Vector2(rng.randf_range(-1, 1), -1)
 	velocity = direction.normalized()
+	audio_player_2d.play_audio(bounce_paddle)
  
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		var collider:Object = collision.get_collider()
-		if !handle_velocity_after_collision(collider):
-			# if the velocity was not handled after collision, just bounce
-			velocity = velocity.bounce(collision.get_normal())
+		if handle_velocity_after_collision(collider):
+			audio_player_2d.play_audio(bounce_paddle)
+			return
+		
+		# if the velocity was not handled after collision, just bounce
+		velocity = velocity.bounce(collision.get_normal())
 		
 		if collider.has_method('take_damage'):
 			collider.take_damage(1)
+			audio_player_2d.play_audio(bounce_brick)
+			return
 		
 		if collider.has_method('trigger_mode_change'):
 			collider.trigger_mode_change()
+		
+		audio_player_2d.play_audio(bounce_wall)
 
 func handle_velocity_after_collision(object:Object) -> bool:	
 	# then check if the velocity should be handled
@@ -47,6 +62,8 @@ func handle_velocity_after_collision(object:Object) -> bool:
 	return false
 
 func _on_screen_exited() -> void:
+	audio_player_2d.play_audio(audio_ball_lost)
+	velocity = Vector2.ZERO
 	GameManager.lives -= 1
 	GameManager.brick_streak = 0
 	GameManager.mode = GameManager.Mode.NORMAL

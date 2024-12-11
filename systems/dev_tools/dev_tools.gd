@@ -6,6 +6,7 @@ extends Control
 @onready var speed_value: Label = $VBoxContainer/params/speed/speed_value
 @onready var mode_value: Label = $VBoxContainer/params/mode/mode_value
 @onready var state_value: Label = $VBoxContainer/params/state/state_value
+@onready var highscore_value: Label = $VBoxContainer/params/highscore/highscore_value
 
 var dev_mode_enabled = false
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 	GameManager.mode_changed.connect(func(mode:int): mode_value.text = str(dict_key_from_value(GameManager.Mode, mode)))
 	GameManager.game_new.connect(func(): state_value.text = 'GAME_NEW')
 	GameManager.game_over.connect(func(): state_value.text = 'GAME_OVER')
+	GameManager.highscore_changed.connect(func(highscore:bool): highscore_value.text = 'TRUE' if highscore else 'FALSE')
 
 func dict_key_from_value(dict:Dictionary, value:int):
 	for key in dict.keys():
@@ -76,3 +78,5 @@ func _input(event):
 				GameManager.brick_streak -= 1
 		elif Input.is_action_pressed('dev_bricks_streak_increase'):
 			GameManager.brick_streak += 1
+		if Input.is_action_just_pressed('dev_highscore_toggle'):
+			GameManager.highscore = !GameManager.highscore

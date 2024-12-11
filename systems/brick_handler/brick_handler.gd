@@ -2,6 +2,10 @@ extends Node2D
 
 @export var scene:PackedScene
 @export var resources:Array[BrickResource]
+@export var audio_brick_destroyed:AudioStream
+@export var audio_bricks_reset:AudioStream
+
+@onready var audio_player_2d: AudioPlayer2D = $AudioPlayer2D
 
 var bricks_destroyed:Array[Brick] = []
 var rows:Array[BrickResource] = []
@@ -33,6 +37,7 @@ func bricks_clear() -> void:
 
 func bricks_reset() -> void:
 	bricks_clear()
+	audio_player_2d.play_audio(audio_bricks_reset)
 	setup_rows()
 	var offset = Vector2(25, 85)
 	for row in rows.size():
@@ -63,6 +68,7 @@ func spawn_brick(resource:BrickResource) -> Brick:
 func handle_destroyed_brick(brick:Brick):
 	if brick not in bricks_destroyed:
 		bricks_destroyed.append(brick)
+		audio_player_2d.play_audio(audio_brick_destroyed)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Ball and bricks_destroyed.size() == (ROWS * COLUMNS):

@@ -108,6 +108,22 @@ text = "GAME_NEW"
 horizontal_alignment = 2
 uppercase = true
 
+[node name="highscore" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="highscore_label" type="Label" parent="VBoxContainer/params/highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HIGHSCORE:"
+uppercase = true
+
+[node name="highscore_value" type="Label" parent="VBoxContainer/params/highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FALSE"
+horizontal_alignment = 2
+uppercase = true
+
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10

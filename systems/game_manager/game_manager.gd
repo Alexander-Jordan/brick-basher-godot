@@ -29,6 +29,7 @@ var state:int = GAME_NEW :
 				game_new.emit()
 				lives = 3
 				score = 0
+				highscore = false
 				brick_streak = 0
 			_:
 				return
@@ -49,6 +50,12 @@ var score:int = 0 :
 	set(s):
 		score = s if s > 0 else 0
 		score_changed.emit(score)
+var highscore:bool = false :
+	set(h):
+		if h == highscore:
+			return
+		highscore = h
+		highscore_changed.emit(highscore)
 var brick_streak:int = 0 :
 	set(bs):
 		brick_streak = bs if bs > 0 else 0
@@ -68,6 +75,7 @@ signal ball_speed_changed(speed:int)
 signal mode_changed(mode:int)
 signal lives_changed(lives:int)
 signal score_changed(score:int)
+signal highscore_changed(highscore:bool)
 signal game_new
 signal game_over
 signal bricks_reset
