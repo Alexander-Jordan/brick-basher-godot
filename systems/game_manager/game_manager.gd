@@ -1,8 +1,10 @@
 extends Node
 
-enum {
-	GAME_OVER,
-	GAME_NEW,
+enum Game {
+	OVER,
+	NEW,
+	IN_PLAY,
+	WAITING,
 }
 
 enum Mode {
@@ -18,21 +20,17 @@ enum BallSpeed {
 	MAX = 500,
 }
 
-var state:int = GAME_NEW :
-	set(gs):
-		match gs:
-			GAME_OVER:
-				state = gs
-				game_over.emit()
-			GAME_NEW:
-				state = gs
-				game_new.emit()
-				lives = 3
-				score = 0
-				highscore = false
-				brick_streak = 0
-			_:
-				return
+var game:int = Game.NEW :
+	set(g):
+		if g == game or g not in Game.values():
+			return
+		game = g
+		game_changed.emit(game)
+		if game == Game.NEW:
+			lives = 3
+			score = 0
+			highscore = false
+			brick_streak = 0
 var mode:int = Mode.NORMAL :
 	set(m):
 		if mode == m or m not in Mode.values():
@@ -45,7 +43,7 @@ var lives:int = 3 :
 		lives_changed.emit(lives)
 		if lives < 1:
 			await get_tree().create_timer(1.0).timeout
-			state = GAME_OVER
+			game = Game.OVER
 var score:int = 0 :
 	set(s):
 		score = s if s > 0 else 0
@@ -76,7 +74,8 @@ signal mode_changed(mode:int)
 signal lives_changed(lives:int)
 signal score_changed(score:int)
 signal highscore_changed(highscore:bool)
-signal game_new
-signal game_over
+signal game_changed(game:int)
+signal game_in_play
+signal game_waiting
 signal bricks_reset
 signal bricks_clear

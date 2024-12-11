@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene load_steps=22 format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
+[ext_resource type="AudioStream" uid="uid://bxhd2kxfcnpry" path="res://systems/music/chiptune-grooving-142242.ogg" id="1_hrwpe"]
 [ext_resource type="PackedScene" uid="uid://dl1eswt4ehg5u" path="res://entities/ceiling/ceiling.tscn" id="1_un4r3"]
 [ext_resource type="PackedScene" uid="uid://b285kd34hr8mu" path="res://entities/ball/ball.tscn" id="2_8rdk8"]
 [ext_resource type="Texture2D" uid="uid://u18o7yk120md" path="res://entities/entities_spritesheet.png" id="2_m4sd4"]
+[ext_resource type="Script" path="res://systems/music/game_music.gd" id="2_my4tp"]
 [ext_resource type="Script" path="res://systems/brick_handler/brick_handler.gd" id="3_h1hw6"]
 [ext_resource type="PackedScene" uid="uid://cllc7hmitpq3d" path="res://entities/brick/brick.tscn" id="4_o0h0c"]
 [ext_resource type="Script" path="res://entities/brick/brick_resource.gd" id="5_olc8o"]
@@ -51,6 +53,13 @@ max_speed_on_destroy = false
 
 [node name="Main" type="Node2D"]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_hrwpe")
+volume_db = -5.0
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("2_my4tp")
+
 [node name="boundaries" type="Node" parent="."]
 
 [node name="Ceiling" parent="boundaries" instance=ExtResource("1_un4r3")]
@@ -97,6 +106,7 @@ audio_brick_destroyed = ExtResource("8_md22t")
 audio_bricks_reset = ExtResource("9_yomhv")
 
 [node name="AudioPlayer2D" type="AudioStreamPlayer2D" parent="brick_handler"]
+bus = &"SFX"
 script = ExtResource("8_7pa1o")
 
 [node name="Area2D" type="Area2D" parent="brick_handler"]

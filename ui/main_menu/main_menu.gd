@@ -9,5 +9,5 @@ func _ready() -> void:
 	exit_button.pressed.connect(ui_audio_player.button_pressed.bind(func(): get_tree().quit()))
 
 func start():
-	GameManager.state = GameManager.GAME_NEW
+	GameManager.game = GameManager.Game.NEW
 	get_tree().change_scene_to_file('res://scenes/main.tscn')

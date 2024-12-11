@@ -22,6 +22,7 @@ audio_game_over = ExtResource("3_8ojhj")
 audio_highscore = ExtResource("4_a6xdi")
 
 [node name="UIAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 script = ExtResource("3_ohgls")
 audio_button_pressed = ExtResource("4_cbgqc")
 

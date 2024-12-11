@@ -13,8 +13,8 @@ extends Control
 
 func _ready() -> void:
 	GameManager.score_changed.connect(func(score:int): score_label.text = str(score))
-	GameManager.game_new.connect(func(): end_screen.hide())
-	GameManager.game_over.connect(game_over)
+	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.NEW: end_screen.hide())
+	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.OVER: game_over())
 	restart_button.pressed.connect(ui_audio_player.button_pressed.bind(restart))
 	back_button.pressed.connect(ui_audio_player.button_pressed.bind(go_back))
 
@@ -29,9 +29,9 @@ func game_over():
 
 func restart():
 	restart_button.release_focus()
-	GameManager.state = GameManager.GAME_NEW
+	GameManager.game = GameManager.Game.NEW
 
 func go_back():
 	back_button.release_focus()
-	GameManager.state = GameManager.GAME_NEW
+	GameManager.game = GameManager.Game.NEW
 	get_tree().change_scene_to_file('res://ui/main_menu/main_menu.tscn')

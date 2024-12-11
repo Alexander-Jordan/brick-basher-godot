@@ -16,7 +16,7 @@ const COLUMNS:int = 14
 func _ready() -> void:
 	GameManager.bricks_reset.connect(bricks_reset)
 	GameManager.bricks_clear.connect(bricks_clear)
-	GameManager.game_new.connect(bricks_reset)
+	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.NEW: bricks_reset())
 	bricks_reset()
 
 func setup_rows():
