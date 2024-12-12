@@ -20,12 +20,11 @@ GameManager="*res://systems/game_manager/game_manager.gd"
 
 [display]
 
-window/size/viewport_width=337
+window/size/viewport_width=304
 window/size/viewport_height=540
-window/size/window_width_override=674
+window/size/window_width_override=608
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 window/handheld/orientation=1
 
 [input]

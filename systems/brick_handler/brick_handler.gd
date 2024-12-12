@@ -39,7 +39,7 @@ func bricks_reset() -> void:
 	bricks_clear()
 	audio_player_2d.play_audio(audio_bricks_reset)
 	setup_rows()
-	var offset = Vector2(25, 85)
+	var offset = Vector2(9, 85)
 	for row in rows.size():
 		for column in COLUMNS:
 			var brick = spawn_brick(rows[row])
