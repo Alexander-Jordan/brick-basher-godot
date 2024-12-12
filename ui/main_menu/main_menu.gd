@@ -13,8 +13,8 @@ func _ready() -> void:
 	music_bus_index = AudioServer.get_bus_index('music')
 	sfx_bus_index = AudioServer.get_bus_index('sfx')
 	
-	start_button.pressed.connect(ui_audio_player.button_pressed.bind(start))
-	exit_button.pressed.connect(ui_audio_player.button_pressed.bind(func(): get_tree().quit()))
+	start_button.pressed.connect(func(): ui_audio_player.button_pressed(); start())
+	exit_button.pressed.connect(func(): ui_audio_player.button_pressed(); get_tree().quit())
 	music_toggle.toggled.connect(toggle_music)
 	sfx_toggle.toggled.connect(toggle_sfx)
 	
@@ -26,11 +26,9 @@ func start():
 	get_tree().change_scene_to_file('res://scenes/main.tscn')
 
 func toggle_music(is_off:bool):
-	ui_audio_player.button_pressed(func():
-		AudioServer.set_bus_mute(music_bus_index, is_off)
-	)
+	ui_audio_player.button_pressed()
+	AudioServer.set_bus_mute(music_bus_index, is_off)
 
 func toggle_sfx(is_off:bool):
-	ui_audio_player.button_pressed(func():
-		AudioServer.set_bus_mute(sfx_bus_index, is_off)
-	)
+	ui_audio_player.button_pressed()
+	AudioServer.set_bus_mute(sfx_bus_index, is_off)

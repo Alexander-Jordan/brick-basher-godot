@@ -15,8 +15,8 @@ func _ready() -> void:
 	GameManager.score_changed.connect(func(score:int): score_label.text = str(score))
 	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.NEW: end_screen.hide())
 	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.OVER: game_over())
-	restart_button.pressed.connect(ui_audio_player.button_pressed.bind(restart))
-	back_button.pressed.connect(ui_audio_player.button_pressed.bind(go_back))
+	restart_button.pressed.connect(func(): ui_audio_player.button_pressed(); restart())
+	back_button.pressed.connect(func(): ui_audio_player.button_pressed(); go_back())
 
 func game_over():
 	if GameManager.highscore:

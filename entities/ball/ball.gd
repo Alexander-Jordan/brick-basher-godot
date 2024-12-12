@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		
 		audio_player_2d.play_audio(bounce_wall)
 
-func handle_velocity_after_collision(object:Object) -> bool:	
+func handle_velocity_after_collision(object:Object) -> bool:
 	# then check if the velocity should be handled
 	if object.has_method('ball_velocity_after_bounce'):
 		velocity = object.ball_velocity_after_bounce(velocity, position)

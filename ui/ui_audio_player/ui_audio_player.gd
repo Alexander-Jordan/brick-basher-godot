@@ -3,12 +3,10 @@ extends AudioStreamPlayer
 
 @export var audio_button_pressed:AudioStream
 
-func play_audio(audio:AudioStream, callable:Callable = func():):
+func play_audio(audio:AudioStream):
 	stream = audio
 	pitch_scale = randf_range(0.8, 1.2)
 	play()
-	if !finished.is_connected(callable):
-		finished.connect(callable)
 
-func button_pressed(callable:Callable):
-	play_audio(audio_button_pressed, callable)
+func button_pressed():
+	play_audio(audio_button_pressed)
