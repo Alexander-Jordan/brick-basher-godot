@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 GameManager="*res://systems/game_manager/game_manager.gd"
+SaveSystem="*res://systems/save_system/save_system.gd"
 
 [display]
 
