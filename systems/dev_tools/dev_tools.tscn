@@ -92,19 +92,35 @@ text = "NORMAL"
 horizontal_alignment = 2
 uppercase = true
 
-[node name="state" type="HBoxContainer" parent="VBoxContainer/params"]
+[node name="game" type="HBoxContainer" parent="VBoxContainer/params"]
 layout_mode = 2
 
-[node name="state_label" type="Label" parent="VBoxContainer/params/state"]
+[node name="game_label" type="Label" parent="VBoxContainer/params/game"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "STATE:"
+text = "GAME:"
 uppercase = true
 
-[node name="state_value" type="Label" parent="VBoxContainer/params/state"]
+[node name="game_value" type="Label" parent="VBoxContainer/params/game"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "GAME_NEW"
+text = "NEW"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="highscore" type="HBoxContainer" parent="VBoxContainer/params"]
+layout_mode = 2
+
+[node name="highscore_label" type="Label" parent="VBoxContainer/params/highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HIGHSCORE:"
+uppercase = true
+
+[node name="highscore_value" type="Label" parent="VBoxContainer/params/highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FALSE"
 horizontal_alignment = 2
 uppercase = true
 

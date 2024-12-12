@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	if lock_ball:
 		lock_ball_to_paddle()
-		if Input.is_action_just_pressed('serve') and GameManager.state != GameManager.GAME_OVER:
+		if Input.is_action_just_pressed('serve') and GameManager.game != GameManager.Game.OVER:
 			serve_ball()
 
 func lock_ball_to_paddle() -> void:
