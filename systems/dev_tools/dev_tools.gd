@@ -8,8 +8,6 @@ extends Control
 @onready var game_value: Label = $VBoxContainer/params/game/game_value
 @onready var highscore_value: Label = $VBoxContainer/params/highscore/highscore_value
 
-var dev_mode_enabled = false
-
 func _ready() -> void:
 	GameManager.lives_changed.connect(func(lives:int): lives_value.text = str(lives))
 	GameManager.brick_streak_changed.connect(func(brick_streak:int): brick_streak_value.text = str(brick_streak))
@@ -39,10 +37,10 @@ func _input(event):
 		return
 	
 	if Input.is_action_just_pressed('dev_mode_enabled_toggle'):
-		dev_mode_enabled = !dev_mode_enabled
-		visible = dev_mode_enabled
+		GameManager.dev_mode_enabled = !GameManager.dev_mode_enabled
+		visible = GameManager.dev_mode_enabled
 	
-	if dev_mode_enabled:
+	if GameManager.dev_mode_enabled:
 		if Input.is_action_just_pressed('dev_ball_speed_init'):
 			GameManager.ball_speed_changed.emit(GameManager.BallSpeed.INIT)
 		if Input.is_action_just_pressed('dev_ball_speed_medium'):

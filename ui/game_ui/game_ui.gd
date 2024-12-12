@@ -12,6 +12,7 @@ extends Control
 @onready var game_over_label: Label = $VBoxContainer/end_screen/VBoxContainer/game_over_label
 
 func _ready() -> void:
+	SaveSystem.stats.games_count += 1
 	GameManager.score_changed.connect(func(score:int): score_label.text = str(score))
 	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.NEW: end_screen.hide())
 	GameManager.game_changed.connect(func(game:int): if game == GameManager.Game.OVER: game_over())

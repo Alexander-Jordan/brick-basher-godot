@@ -11,14 +11,25 @@ const SETTINGS_DEFAULT:Dictionary = {
   }
 }
 
-var settings_data:Dictionary = SETTINGS_DEFAULT
-var stats_data:StatsData = StatsData.new()
+var settings:Dictionary = SETTINGS_DEFAULT
+var stats:StatsData = StatsData.new()
+var is_score_saveable:bool = true :
+	set(iss):
+		if is_score_saveable == iss:
+			return
+		is_score_saveable = iss
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	stats.game_booted_count += 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func save_score(score:int) -> void:
+	if is_score_saveable:
+		stats.last_score = score
+		if score > stats.best_score:
+			GameManager.highscore = true
+			stats.best_score = score
