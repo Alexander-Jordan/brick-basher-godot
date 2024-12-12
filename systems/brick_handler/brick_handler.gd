@@ -73,3 +73,5 @@ func handle_destroyed_brick(brick:Brick):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Ball and bricks_destroyed.size() == (ROWS * COLUMNS):
 		GameManager.bricks_reset.emit()
+		if SaveSystem.is_score_saveable:
+			SaveSystem.stats.screens_cleared_count += 1

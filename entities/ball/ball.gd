@@ -31,6 +31,13 @@ func serve():
 	velocity = direction.normalized()
 	GameManager.game = GameManager.Game.IN_PLAY
 	audio_player_2d.play_audio(bounce_paddle)
+	
+	# since clicking on a button, like 'Restart', also trigger a serve
+	# to count the number of times served properly, first wait a little bit
+	# then check if the ball is still in play before counting it as a serve
+	await get_tree().create_timer(0.3).timeout
+	if GameManager.game == GameManager.Game.IN_PLAY:
+		SaveSystem.stats.balls_served_count += 1
  
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * speed * delta)

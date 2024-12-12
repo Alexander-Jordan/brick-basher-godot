@@ -28,7 +28,11 @@ func start():
 func toggle_music(is_off:bool):
 	ui_audio_player.button_pressed()
 	AudioServer.set_bus_mute(music_bus_index, is_off)
+	SaveSystem.settings.music = !is_off
+	SaveSystem.save_settings()
 
 func toggle_sfx(is_off:bool):
 	ui_audio_player.button_pressed()
 	AudioServer.set_bus_mute(sfx_bus_index, is_off)
+	SaveSystem.settings.sfx = !is_off
+	SaveSystem.save_settings()

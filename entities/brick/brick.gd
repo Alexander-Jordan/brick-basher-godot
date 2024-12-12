@@ -24,13 +24,15 @@ func take_damage(damage:int) -> void:
 	
 	current_health = current_health - damage
 	if current_health <= 0:
-		destroy()
+		destroy(true)
 
-func destroy() -> void:
+func destroy(add_score:bool = false) -> void:
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	self.hide()
-	GameManager.score += resource.score
-	GameManager.brick_streak += 1
+	if add_score:
+		GameManager.score += resource.score
+		GameManager.brick_streak += 1
+		SaveSystem.stats.bricks_destroyed_count += 1
 	if resource.max_speed_on_destroy:
 		GameManager.ball_speed_changed.emit(GameManager.BallSpeed.MAX)
 	is_destroyed = true
