@@ -1,0 +1,167 @@
+[gd_scene load_steps=3 format=3 uid="uid://b117sx2xryoq1"]
+
+[ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_3bs61"]
+[ext_resource type="Script" path="res://systems/save_system/stats_popup.gd" id="2_tpboe"]
+
+[node name="StatsPopup" type="PopupPanel"]
+title = "STATS"
+initial_position = 2
+size = Vector2i(256, 256)
+visible = true
+borderless = false
+theme = ExtResource("1_3bs61")
+script = ExtResource("2_tpboe")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 252.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="game_booted" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/game_booted"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Game Booted"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/game_booted"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="games" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/games"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Games"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/games"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="last_score" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/last_score"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Last score"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/last_score"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="best_score" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/best_score"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Best score"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/best_score"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="balls_served" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/balls_served"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Balls served"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/balls_served"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="bricks_destroyed" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/bricks_destroyed"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Bricks destroyed"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/bricks_destroyed"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="screens_cleared" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/screens_cleared"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Screens  cleared"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/screens_cleared"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="entered_hard_mode" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/entered_hard_mode"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Entered hard mode"
+uppercase = true
+
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/entered_hard_mode"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+horizontal_alignment = 2
+uppercase = true
