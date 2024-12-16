@@ -66,16 +66,16 @@ text = "EXIT"
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="music_toggle" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="music_toggle" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-toggle_mode = true
+button_pressed = true
 text = "MUSIC"
 
-[node name="sfx_toggle" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="sfx_toggle" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-toggle_mode = true
+button_pressed = true
 text = "SFX"
 
 [node name="StatsPopup" parent="." instance=ExtResource("6_jqhv4")]

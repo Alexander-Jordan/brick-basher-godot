@@ -22,21 +22,21 @@ func _ready() -> void:
 	music_toggle.toggled.connect(toggle_music)
 	sfx_toggle.toggled.connect(toggle_sfx)
 	
-	music_toggle.set_pressed_no_signal(AudioServer.is_bus_mute(music_bus_index))
-	sfx_toggle.set_pressed_no_signal(AudioServer.is_bus_mute(sfx_bus_index))
+	music_toggle.set_pressed_no_signal(!AudioServer.is_bus_mute(music_bus_index))
+	sfx_toggle.set_pressed_no_signal(!AudioServer.is_bus_mute(sfx_bus_index))
 
 func start():
 	GameManager.game = GameManager.Game.NEW
 	get_tree().change_scene_to_file('res://scenes/main.tscn')
 
-func toggle_music(is_off:bool):
+func toggle_music(is_on:bool):
 	ui_audio_player.button_pressed()
-	AudioServer.set_bus_mute(music_bus_index, is_off)
-	SaveSystem.settings.music = !is_off
+	AudioServer.set_bus_mute(music_bus_index, !is_on)
+	SaveSystem.settings.audio.music = is_on
 	SaveSystem.save_settings()
 
-func toggle_sfx(is_off:bool):
+func toggle_sfx(is_on:bool):
 	ui_audio_player.button_pressed()
-	AudioServer.set_bus_mute(sfx_bus_index, is_off)
-	SaveSystem.settings.sfx = !is_off
+	AudioServer.set_bus_mute(sfx_bus_index, !is_on)
+	SaveSystem.settings.audio.sfx = is_on
 	SaveSystem.save_settings()
