@@ -13,6 +13,9 @@ config_version=5
 config/name="breakout-godot"
 run/main_scene="res://ui/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://resources/breakout_splash.png"
+config/icon="res://resources/breakout_icon.png"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
@@ -27,6 +30,7 @@ window/size/window_width_override=608
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/handheld/orientation=1
+mouse_cursor/custom_image="res://ui/mouse_cursor.png"
 
 [input]
 
