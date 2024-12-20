@@ -27,6 +27,10 @@ var game:int = Game.NEW :
 		assert(g in Game.values(), '%s is not a valid Game state.' % str(g))
 		game = g
 		game_changed.emit(game)
+		if game == Game.IN_PLAY:
+			DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CONFINED_HIDDEN)
+		else:
+			DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		if game == Game.NEW:
 			SaveSystem.stats.games_count += 1
 			SaveSystem.is_score_saveable = !dev_mode_enabled
