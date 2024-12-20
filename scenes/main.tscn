@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://entities/brick/brick_resource.gd" id="5_olc8o"]
 [ext_resource type="PackedScene" uid="uid://ckhh8bohuxaf8" path="res://ui/game_ui/game_ui.tscn" id="6_naxe7"]
 [ext_resource type="Script" path="res://entities/audio_player_2d.gd" id="8_7pa1o"]
-[ext_resource type="AudioStream" uid="uid://b2eobhd4fgc88" path="res://entities/brick/brick_destroy_3.wav" id="8_md22t"]
+[ext_resource type="AudioStream" uid="uid://jrktrp8jtdds" path="res://entities/brick/brick_destroy.wav" id="8_md22t"]
 [ext_resource type="PackedScene" uid="uid://bbnkb8an2gw5n" path="res://systems/dev_tools/dev_tools.tscn" id="9_7aptm"]
 [ext_resource type="AudioStream" uid="uid://s8pygt1crtqd" path="res://systems/brick_handler/bricks_reset.wav" id="9_yomhv"]
 

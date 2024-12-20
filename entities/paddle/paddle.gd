@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 enum Width {
-	NORMAL = 6,
-	HARD = 3,
-	DEV = 102,
+	NORMAL = 8,
+	HARD = 6,
+	DEV = 101,
 }
 
 @export var ball:Ball
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 # used to lock the y-position
 @onready var y_position:float = self.position.y
@@ -23,17 +23,21 @@ var width:int = Width.NORMAL :
 		width = w
 		match width:
 			Width.HARD:
-				animated_sprite_2d.scale.x = 0.5
+				sprite_2d.scale.x = 0.5
 			Width.DEV:
-				animated_sprite_2d.scale.x = 17
+				sprite_2d.scale.x = 13
 			_:
-				animated_sprite_2d.scale.x = 1.0
+				sprite_2d.scale.x = 1.0
 		collision_shape_2d.shape.size.x = width
 
 func _ready() -> void:
 	GameManager.mode_changed.connect(func(mode:int): change_size_on_mode_change(mode))
 	if ball:
 		ball.reset_ball.connect(func(): lock_ball = true)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if GameManager.game != GameManager.Game.OVER and event.is_action_pressed('serve'):
+			serve_ball()
 
 func _physics_process(delta: float) -> void:
 	input_pos = get_viewport().get_mouse_position()
@@ -44,8 +48,6 @@ func _physics_process(delta: float) -> void:
 	
 	if lock_ball:
 		lock_ball_to_paddle()
-		if Input.is_action_just_pressed('serve') and GameManager.game != GameManager.Game.OVER:
-			serve_ball()
 
 func lock_ball_to_paddle() -> void:
 	if ball:

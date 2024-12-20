@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme = ExtResource("1_8e07f")
 script = ExtResource("2_3o7bp")
 audio_game_over = ExtResource("3_8ojhj")
@@ -66,6 +67,7 @@ text = "RESTART"
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/end_screen"]
 layout_mode = 1

@@ -34,6 +34,7 @@ var game:int = Game.NEW :
 			score = 0
 			highscore = false
 			brick_streak = 0
+			mode = Mode.NORMAL
 var mode:int = Mode.NORMAL :
 	set(m):
 		if mode == m:
@@ -81,6 +82,10 @@ var dev_mode_enabled:bool = false :
 		dev_mode_enabled = dme
 		if dev_mode_enabled:
 			SaveSystem.is_score_saveable = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if game == Game.OVER and event.is_action_pressed('serve'):
+		game = Game.NEW
 
 signal brick_streak_changed(brick_streak:int)
 signal ball_speed_changed(speed:int)
