@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7jqfw4ktr7uc" path="res://entities/entities_sprite.png" id="2_s3n3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fl3vy"]
-size = Vector2(6, 2)
+size = Vector2(8, 2)
 
 [node name="Paddle" type="CharacterBody2D"]
 scale = Vector2(3, 3)
