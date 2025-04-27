@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b285kd34hr8mu"]
 
-[ext_resource type="Script" path="res://entities/ball/ball.gd" id="1_b35a3"]
+[ext_resource type="Script" uid="uid://d2cebmheatawh" path="res://entities/ball/ball.gd" id="1_b35a3"]
 [ext_resource type="AudioStream" uid="uid://b1xvxsdbkb46x" path="res://entities/ball/ball_lost.wav" id="3_6d818"]
-[ext_resource type="Script" path="res://entities/audio_player_2d.gd" id="3_a3uky"]
+[ext_resource type="Script" uid="uid://21njqcpnpquw" path="res://entities/audio_player_2d.gd" id="3_a3uky"]
 [ext_resource type="AudioStream" uid="uid://kxbhkesnmxx5" path="res://entities/ball/bounce.wav" id="3_q6ko3"]
 [ext_resource type="Texture2D" uid="uid://c7jqfw4ktr7uc" path="res://entities/entities_sprite.png" id="4_148qu"]
 

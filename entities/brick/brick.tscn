@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cllc7hmitpq3d"]
 
-[ext_resource type="Script" path="res://entities/brick/brick.gd" id="1_mgtre"]
+[ext_resource type="Script" uid="uid://duhm52pqw0u7v" path="res://entities/brick/brick.gd" id="1_mgtre"]
 [ext_resource type="Texture2D" uid="uid://c7jqfw4ktr7uc" path="res://entities/entities_sprite.png" id="2_eo53t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blux0"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8qwgw5jcian7"]
 
 [ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_ebfee"]
-[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="2_sjegy"]
+[ext_resource type="Script" uid="uid://cxucll2xfgpoo" path="res://ui/main_menu/main_menu.gd" id="2_sjegy"]
 [ext_resource type="AudioStream" uid="uid://bxhd2kxfcnpry" path="res://systems/music/chiptune-grooving-142242.ogg" id="3_c1r7u"]
 [ext_resource type="AudioStream" uid="uid://lchpmesdm40b" path="res://ui/ui_audio_player/click.wav" id="3_x18ru"]
-[ext_resource type="Script" path="res://ui/ui_audio_player/ui_audio_player.gd" id="4_qnmmh"]
+[ext_resource type="Script" uid="uid://b3lofflnqac16" path="res://ui/ui_audio_player/ui_audio_player.gd" id="4_qnmmh"]
 [ext_resource type="PackedScene" uid="uid://b117sx2xryoq1" path="res://systems/save_system/stats_popup.tscn" id="6_jqhv4"]
 
 [node name="MainMenu" type="Control"]

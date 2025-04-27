@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b117sx2xryoq1"]
 
 [ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_3bs61"]
-[ext_resource type="Script" path="res://systems/save_system/stats_popup.gd" id="2_tpboe"]
+[ext_resource type="Script" uid="uid://s41u1pvtplrq" path="res://systems/save_system/stats_popup.gd" id="2_tpboe"]
 
 [node name="StatsPopup" type="PopupPanel"]
 title = "STATS"

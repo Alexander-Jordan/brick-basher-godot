@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbnkb8an2gw5n"]
 
 [ext_resource type="Theme" uid="uid://bqskxrxgwpbh4" path="res://systems/base_theme.tres" id="1_m0jtx"]
-[ext_resource type="Script" path="res://systems/dev_tools/dev_tools.gd" id="2_gkexi"]
+[ext_resource type="Script" uid="uid://c031b4256dctc" path="res://systems/dev_tools/dev_tools.gd" id="2_gkexi"]
 
 [node name="DevTools" type="Control"]
 visible = false

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b2eobhd4fgc88"
-path="res://.godot/imported/brick_destroy_3.wav-87d522bb2d8dc950ec7c804c2b3b0f9d.sample"
+path="res://.godot/imported/brick_destroy.wav-dc358bdcc271584a7842fdc72d2d8dd6.sample"
 
 [deps]
 
-source_file="res://entities/brick/brick_destroy_3.wav"
-dest_files=["res://.godot/imported/brick_destroy_3.wav-87d522bb2d8dc950ec7c804c2b3b0f9d.sample"]
+source_file="res://entities/brick/brick_destroy.wav"
+dest_files=["res://.godot/imported/brick_destroy.wav-dc358bdcc271584a7842fdc72d2d8dd6.sample"]
 
 [params]
 
