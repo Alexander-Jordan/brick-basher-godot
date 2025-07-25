@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="breakout-godot"
+config/name="Brick Basher"
 run/main_scene="res://ui/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/image="res://resources/breakout_splash.png"
-config/icon="res://resources/breakout_icon.png"
+boot_splash/bg_color=Color(0.133333, 0.12549, 0.203922, 1)
+boot_splash/image="uid://biuh8omiyp22k"
+config/icon="uid://biuh8omiyp22k"
 boot_splash/minimum_display_time=3000
 
 [autoload]
