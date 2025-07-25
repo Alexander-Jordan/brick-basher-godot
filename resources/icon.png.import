@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x41ylbx53yvk"
-path="res://.godot/imported/breakout_splash.png-3723d33f0077da9a0581c39c92d77c1f.ctex"
+uid="uid://biuh8omiyp22k"
+path="res://.godot/imported/icon.png-e9340f3172b6e3151758cbd23c21cb71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/breakout_splash.png"
-dest_files=["res://.godot/imported/breakout_splash.png-3723d33f0077da9a0581c39c92d77c1f.ctex"]
+source_file="res://resources/icon.png"
+dest_files=["res://.godot/imported/icon.png-e9340f3172b6e3151758cbd23c21cb71.ctex"]
 
 [params]
 

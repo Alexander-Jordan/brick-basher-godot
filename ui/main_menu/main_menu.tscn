@@ -41,7 +41,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
-text = "BREAKOUT"
+text = "BRICK BASHER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
