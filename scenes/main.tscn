@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjbisfjnpwf58"]
+[gd_scene format=3 uid="uid://bjbisfjnpwf58"]
 
 [ext_resource type="PackedScene" uid="uid://behjioelcim74" path="res://entities/paddle/paddle.tscn" id="1_8cpw8"]
 [ext_resource type="AudioStream" uid="uid://bxhd2kxfcnpry" path="res://systems/music/chiptune-grooving-142242.ogg" id="1_hrwpe"]
@@ -23,85 +23,78 @@ normal = Vector2(-1, 0)
 [sub_resource type="Resource" id="Resource_mhsjy"]
 script = ExtResource("5_olc8o")
 color = Color(0.701961, 0.0705882, 0.0705882, 1)
-health = 1
 score = 7
 max_speed_on_destroy = true
 
 [sub_resource type="Resource" id="Resource_2550q"]
 script = ExtResource("5_olc8o")
 color = Color(0.901961, 0.384314, 0.12549, 1)
-health = 1
 score = 5
 max_speed_on_destroy = true
 
 [sub_resource type="Resource" id="Resource_it0lq"]
 script = ExtResource("5_olc8o")
 color = Color(0.341176, 0.8, 0.239216, 1)
-health = 1
 score = 3
-max_speed_on_destroy = false
 
 [sub_resource type="Resource" id="Resource_4q1oa"]
 script = ExtResource("5_olc8o")
 color = Color(1, 0.913725, 0.25098, 1)
-health = 1
-score = 1
-max_speed_on_destroy = false
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_maa7i"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1166757659]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=916811648]
 stream = ExtResource("1_hrwpe")
 volume_db = -5.0
 bus = &"music"
 parameters/looping = true
 script = ExtResource("2_my4tp")
 
-[node name="boundaries" type="Node" parent="."]
+[node name="boundaries" type="Node" parent="." unique_id=368277567]
 
-[node name="Ceiling" parent="boundaries" instance=ExtResource("1_un4r3")]
+[node name="Ceiling" parent="boundaries" unique_id=641461373 instance=ExtResource("1_un4r3")]
 
-[node name="wall_left" type="StaticBody2D" parent="boundaries"]
+[node name="wall_left" type="StaticBody2D" parent="boundaries" unique_id=586173203]
 position = Vector2(0, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_left" unique_id=630825095]
 shape = SubResource("WorldBoundaryShape2D_267v6")
 
-[node name="wall_right" type="StaticBody2D" parent="boundaries"]
+[node name="wall_right" type="StaticBody2D" parent="boundaries" unique_id=107108326]
 position = Vector2(304, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/wall_right" unique_id=686721125]
 shape = SubResource("WorldBoundaryShape2D_atxi2")
 
-[node name="Paddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_8cpw8")]
+[node name="Paddle" parent="." unique_id=1204237245 node_paths=PackedStringArray("ball") instance=ExtResource("1_8cpw8")]
 position = Vector2(152, 500)
 ball = NodePath("../Ball")
 
-[node name="Ball" parent="." instance=ExtResource("2_8rdk8")]
+[node name="Ball" parent="." unique_id=1256395934 instance=ExtResource("2_8rdk8")]
 
-[node name="brick_handler" type="Node2D" parent="."]
+[node name="brick_handler" type="Node2D" parent="." unique_id=1707825426]
 script = ExtResource("3_h1hw6")
 scene = ExtResource("4_o0h0c")
 resources = Array[ExtResource("5_olc8o")]([SubResource("Resource_mhsjy"), SubResource("Resource_2550q"), SubResource("Resource_it0lq"), SubResource("Resource_4q1oa")])
 audio_brick_destroyed = ExtResource("8_md22t")
 audio_bricks_reset = ExtResource("9_yomhv")
 
-[node name="AudioPlayer2D" type="AudioStreamPlayer2D" parent="brick_handler"]
+[node name="AudioPlayer2D" type="AudioStreamPlayer2D" parent="brick_handler" unique_id=1689383979]
 bus = &"sfx"
 script = ExtResource("8_7pa1o")
 
-[node name="Area2D" type="Area2D" parent="brick_handler"]
+[node name="Area2D" type="Area2D" parent="brick_handler" unique_id=1013184016]
 position = Vector2(0, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="brick_handler/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick_handler/Area2D" unique_id=884227208]
 shape = SubResource("WorldBoundaryShape2D_maa7i")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1083250971]
 
-[node name="DevTools" parent="CanvasLayer" instance=ExtResource("9_7aptm")]
+[node name="DevTools" parent="CanvasLayer" unique_id=1398953019 instance=ExtResource("9_7aptm")]
 
-[node name="GameUI" parent="CanvasLayer" instance=ExtResource("6_naxe7")]
+[node name="GameUI" parent="CanvasLayer" unique_id=1117746711 instance=ExtResource("6_naxe7")]
 
 [connection signal="body_entered" from="brick_handler/Area2D" to="brick_handler" method="_on_area_2d_body_entered"]
